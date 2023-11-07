@@ -1,6 +1,7 @@
 package es.ua.eps.chatapp
 
 import java.io.BufferedReader
+import java.io.IOException
 import java.io.InputStreamReader
 import java.io.OutputStream
 import java.net.Socket
@@ -48,8 +49,18 @@ class ChatClient {
         }
     }
 
+    fun receiveMessage(): String? {
+        try {
+            val message = inputStream?.readLine()
+            return message
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+
     fun disconnect() {
         socket?.close()
     }
 }
-
