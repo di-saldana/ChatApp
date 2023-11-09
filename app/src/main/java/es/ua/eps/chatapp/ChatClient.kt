@@ -8,8 +8,8 @@ import java.net.Socket
 import kotlin.concurrent.thread
 
 class ChatClient {
-    private val SERVER_IP = "10.0.2.2"
-    private val SERVER_PORT = 12345
+    private val SERVER_IP = "192.168.18.72" // "10.0.2.2"
+    private val SERVER_PORT = 8080 // 12345
 
     private var socket: Socket? = null
     private var outputStream: OutputStream? = null

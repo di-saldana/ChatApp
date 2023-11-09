@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var messageEditText: EditText
     private lateinit var sendButton: Button
-    private lateinit var messageAdapter: ClientMessageAdapter
+    private lateinit var messageAdapter: MessageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize and configure the RecyclerView for displaying messages
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        messageAdapter = ClientMessageAdapter()
+        messageAdapter = MessageAdapter()
         recyclerView.adapter = messageAdapter
 
         // Move the connection code to a background thread
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 if (receivedMessage != null) {
                     runOnUiThread {
                         // Add receivedMessage to your adapter and update the RecyclerView
-                        messageAdapter.addMessage(receivedMessage)
+                        messageAdapter.addMessage("$receivedMessage")
                         messageAdapter.notifyDataSetChanged()
                     }
                 }
@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
     private fun sendMessage() {
         val message = messageEditText.text.toString()
         if (message.isNotEmpty()) {
-            chatClient.sendMessage(message)
+            chatClient.sendMessage("Client: $message")
 
             // Add the message to the local RecyclerView
-            messageAdapter.addMessage(message)
+            messageAdapter.addMessage("Client: $message")
             messageAdapter.notifyDataSetChanged()
 
             // Clear the EditText
