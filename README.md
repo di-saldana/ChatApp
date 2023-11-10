@@ -1,5 +1,8 @@
 # ChatApp
 
+    - Minima versión de Android: 33
+    - SDK: 34
+
 ## Instrucciones de Instalación
 Para instalar el APK directamente en un dispositivo Android conectado a tu computadora o en un emulador, sigue estos pasos:
 
@@ -45,9 +48,6 @@ Para instalar el APK directamente en un dispositivo Android conectado a tu compu
 
     - Verifica en el emulador que tu aplicación se haya instalado correctamente.
 
+## <a href="https://github.com/di-saldana/ChatApp/blob/main/app/build/outputs/apk/debug/app-debug.apk" target="_blank">APK</a>
 
-## Minima versión de Android: 33
-
-## SDK: 34
-
-## Video: <a href="https://youtu.be/i8VWWJFBdWc?feature=shared" target="_blank">ChatApp</a>
+## <a href="https://youtu.be/i8VWWJFBdWc?feature=shared" target="_blank">Video</a>
