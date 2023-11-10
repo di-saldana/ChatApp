@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- RecyclerView para mostrar una lista de elementos -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -12,12 +13,14 @@
         android:padding="8dp"
         android:scrollbars="vertical" />
 
+    <!-- LinearLayout para la entrada de texto y el botón de enviar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="15dp">
 
+        <!-- EditText para escribir un mensaje -->
         <EditText
             android:id="@+id/messageEditText"
             android:layout_width="0dp"
@@ -28,6 +31,7 @@
             android:textIsSelectable="true"
             android:textCursorDrawable="@null"/>
 
+        <!-- Botón para enviar el mensaje -->
         <Button
             android:id="@+id/sendButton"
             android:layout_width="wrap_content"

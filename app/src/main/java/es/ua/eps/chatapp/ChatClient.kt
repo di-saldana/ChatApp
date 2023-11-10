@@ -15,20 +15,23 @@ class ChatClient {
 
     private var messageListener: MessageListener? = null
 
+    // Interfaz para escuchar mensajes recibidos
     interface MessageListener {
         fun onMessageReceived(message: String)
     }
 
+    // Establece el listener para recibir mensajes
     fun setMessageListener(listener: MessageListener) {
         messageListener = listener
     }
 
+    // Conecta al servidor de chat
     fun connect(server_ip: String, server_port: Int) {
         socket = Socket(server_ip, server_port)
         outputStream = socket?.getOutputStream()
         inputStream = BufferedReader(InputStreamReader(socket?.getInputStream()))
 
-        // Start a thread to receive messages
+        // Inicia un thread para recibir mensajes
         thread {
             while (true) {
                 val message = inputStream?.readLine()
@@ -39,6 +42,7 @@ class ChatClient {
         }
     }
 
+    // Envía un mensaje al servidor de chat
     fun sendMessage(message: String) {
         thread {
             val messageBytes = message.toByteArray(Charsets.UTF_8)
@@ -47,16 +51,17 @@ class ChatClient {
         }
     }
 
+    // Recibe un mensaje del servidor del chat
     fun receiveMessage(): String? {
         try {
-            val message = inputStream?.readLine()
-            return message
+            return inputStream?.readLine()
         } catch (e: IOException) {
             e.printStackTrace()
         }
         return null
     }
 
+    // Desconecta del servidor del chat
     fun disconnect() {
         socket?.close()
     }
