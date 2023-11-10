@@ -7,7 +7,7 @@ import java.net.ServerSocket
 import java.net.Socket
 
 object ChatServer {
-    private const val PORT = 8081
+    private const val PORT = 8082
     private val clientSockets = mutableListOf<Socket>()
 
     @JvmStatic
@@ -83,7 +83,13 @@ object ChatServer {
 
         for (char in message) {
             if (char.isLetter()) {
-                val shiftedChar = (char.toInt() - shift).toChar()
+                val shiftedChar = if (char.isLowerCase()) {
+                    ((char.toInt() - 'a'.toInt() - shift + 26) % 26 + 'a'.toInt()).toChar()
+                } else if (char == 'y') {
+                    'v'
+                } else {
+                    ((char.toInt() - 'A'.toInt() - shift + 26) % 26 + 'A'.toInt()).toChar()
+                }
                 stringBuilder.append(shiftedChar)
             } else {
                 stringBuilder.append(char)
@@ -92,5 +98,6 @@ object ChatServer {
 
         return stringBuilder.toString()
     }
+
 
 }

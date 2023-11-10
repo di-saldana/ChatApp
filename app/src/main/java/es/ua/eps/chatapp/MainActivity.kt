@@ -76,7 +76,13 @@ class MainActivity : AppCompatActivity() {
 
         for (char in message) {
             if (char.isLetter()) {
-                val shiftedChar = (char.toInt() + shift).toChar()
+                val shiftedChar = if (char.isLowerCase()) {
+                    ((char.toInt() - 'a'.toInt() + shift) % 26 + 'a'.toInt()).toChar()
+                } else if (char == 'y') {
+                    'b'
+                } else {
+                    ((char.toInt() - 'A'.toInt() + shift) % 26 + 'A'.toInt()).toChar()
+                }
                 stringBuilder.append(shiftedChar)
             } else {
                 stringBuilder.append(char)
@@ -85,4 +91,5 @@ class MainActivity : AppCompatActivity() {
 
         return stringBuilder.toString()
     }
+
 }
