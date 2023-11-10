@@ -57,15 +57,49 @@ class MainActivity : AppCompatActivity() {
         val message = messageEditText.text.toString()
 
         if (message.isNotEmpty()) {
-            // Enviar el mensaje al cliente de chat
-            chatClient.sendMessage("$message")
+            // Cifrado del mensaje
+            val cipheredMessage = cipherMessage(message)
 
-            // Agregar el mensaje al adaptador de mensajes
-            messageAdapter.addMessage("$message")
+            chatClient.sendMessage("$cipheredMessage")
+
+            messageAdapter.addMessage(message)
             messageAdapter.notifyDataSetChanged()
 
-            // Limpiar el campo de texto del mensaje
             messageEditText.text.clear()
         }
     }
+
+    // Función para cifrar un mensaje
+    private fun cipherMessage(message: String): String {
+        val shift = 3 // Número de posiciones a cambiar de cada caracter.
+        val stringBuilder = StringBuilder()
+
+        for (char in message) {
+            if (char.isLetter()) {
+                val shiftedChar = (char.toInt() + shift).toChar()
+                stringBuilder.append(shiftedChar)
+            } else {
+                stringBuilder.append(char)
+            }
+        }
+
+        return stringBuilder.toString()
+    }
+
+
+//    private fun sendMessage() {
+//        val message = messageEditText.text.toString()
+//
+//        if (message.isNotEmpty()) {
+//            // Enviar el mensaje al cliente de chat
+//            chatClient.sendMessage("$message")
+//
+//            // Agregar el mensaje al adaptador de mensajes
+//            messageAdapter.addMessage("$message")
+//            messageAdapter.notifyDataSetChanged()
+//
+//            // Limpiar el campo de texto del mensaje
+//            messageEditText.text.clear()
+//        }
+//    }
 }

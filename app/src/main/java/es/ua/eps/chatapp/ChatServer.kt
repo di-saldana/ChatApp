@@ -49,7 +49,7 @@ object ChatServer {
             try {
                 while (inputStream?.read(buffer).also { bytesRead = it!! } != -1) {
                     val message = String(buffer, 0, bytesRead)
-                    println("Recibido: $message")
+                    println("Recibido: ${decipherMessage(message)}") // Mensaje descifrado
 
                     broadcastMessage(message, socket)
                 }
@@ -75,4 +75,22 @@ object ChatServer {
             e.printStackTrace()
         }
     }
+
+    // Funcion para descifrar mensaje
+    private fun decipherMessage(message: String): String {
+        val shift = 3 // Número de posiciones a cambiar de cada caracter.
+        val stringBuilder = StringBuilder()
+
+        for (char in message) {
+            if (char.isLetter()) {
+                val shiftedChar = (char.toInt() - shift).toChar()
+                stringBuilder.append(shiftedChar)
+            } else {
+                stringBuilder.append(char)
+            }
+        }
+
+        return stringBuilder.toString()
+    }
+
 }
