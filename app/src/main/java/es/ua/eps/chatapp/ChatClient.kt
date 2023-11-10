@@ -8,10 +8,8 @@ import java.net.Socket
 import kotlin.concurrent.thread
 
 class ChatClient {
-    private val SERVER_IP = "192.168.18.72" // "10.0.2.2"
-    private val SERVER_PORT = 8080 // 12345
-
     private var socket: Socket? = null
+
     private var outputStream: OutputStream? = null
     private var inputStream: BufferedReader? = null
 
@@ -25,8 +23,8 @@ class ChatClient {
         messageListener = listener
     }
 
-    fun connect() {
-        socket = Socket(SERVER_IP, SERVER_PORT)
+    fun connect(server_ip: String, server_port: Int) {
+        socket = Socket(server_ip, server_port)
         outputStream = socket?.getOutputStream()
         inputStream = BufferedReader(InputStreamReader(socket?.getInputStream()))
 
@@ -58,7 +56,6 @@ class ChatClient {
         }
         return null
     }
-
 
     fun disconnect() {
         socket?.close()

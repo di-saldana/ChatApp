@@ -19,25 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        chatClient = ChatClient()
+        chatClient = ClientSingleton.chatClient
+
         messageEditText = findViewById(R.id.messageEditText)
         sendButton = findViewById(R.id.sendButton)
 
-        // Initialize and configure the RecyclerView for displaying messages
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         messageAdapter = MessageAdapter()
         recyclerView.adapter = messageAdapter
 
-        // Move the connection code to a background thread
         thread {
-            chatClient.connect()
-
             while (true) {
                 val receivedMessage = chatClient.receiveMessage()
                 if (receivedMessage != null) {
                     runOnUiThread {
-                        // Add receivedMessage to your adapter and update the RecyclerView
                         messageAdapter.addMessage("$receivedMessage")
                         messageAdapter.notifyDataSetChanged()
                     }
@@ -53,13 +49,11 @@ class MainActivity : AppCompatActivity() {
     private fun sendMessage() {
         val message = messageEditText.text.toString()
         if (message.isNotEmpty()) {
-            chatClient.sendMessage("Client: $message")
+            chatClient.sendMessage("$message")
 
-            // Add the message to the local RecyclerView
-            messageAdapter.addMessage("Client: $message")
+            messageAdapter.addMessage("$message")
             messageAdapter.notifyDataSetChanged()
 
-            // Clear the EditText
             messageEditText.text.clear()
         }
     }
