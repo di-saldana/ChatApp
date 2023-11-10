@@ -85,21 +85,4 @@ class MainActivity : AppCompatActivity() {
 
         return stringBuilder.toString()
     }
-
-
-//    private fun sendMessage() {
-//        val message = messageEditText.text.toString()
-//
-//        if (message.isNotEmpty()) {
-//            // Enviar el mensaje al cliente de chat
-//            chatClient.sendMessage("$message")
-//
-//            // Agregar el mensaje al adaptador de mensajes
-//            messageAdapter.addMessage("$message")
-//            messageAdapter.notifyDataSetChanged()
-//
-//            // Limpiar el campo de texto del mensaje
-//            messageEditText.text.clear()
-//        }
-//    }
 }
