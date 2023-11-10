@@ -1,0 +1,6 @@
+es.ua.eps.chatapp.test.app-annotation-experimental-1.3.0-0 /Users/dianelys.saldana/.gradle/caches/transforms-3/8ef30cd8458785a6f5c6520a3378e97c/transformed/annotation-experimental-1.3.0/res
+es.ua.eps.chatapp.test.app-core-1.5.0-1 /Users/dianelys.saldana/.gradle/caches/transforms-3/ee985323bd50bae98bdc77920fdb7205/transformed/core-1.5.0/res
+es.ua.eps.chatapp.test.app-androidTest-2 /Users/dianelys.saldana/AndroidStudioProjects/ChatApp/app/build/generated/res/resValues/androidTest/debug
+es.ua.eps.chatapp.test.app-mergeDebugAndroidTestResources-3 /Users/dianelys.saldana/AndroidStudioProjects/ChatApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+es.ua.eps.chatapp.test.app-mergeDebugAndroidTestResources-4 /Users/dianelys.saldana/AndroidStudioProjects/ChatApp/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+es.ua.eps.chatapp.test.app-merged_res-5 /Users/dianelys.saldana/AndroidStudioProjects/ChatApp/app/build/intermediates/merged_res/debugAndroidTest

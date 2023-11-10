@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <!-- TextView para mostrar el título de la aplicación -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"
+        android:textSize="25dp"
+        android:text="ChatApp"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <!-- EditText para ingresar la dirección IP del servidor -->
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Dirección IP del servidor"
+        android:textColor="@color/white"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#8AFFFFFF"
+        android:textColorLink="#FFFFFF" />
+
+    <!-- EditText para ingresar el número de puerto del servidor -->
+    <EditText
+        android:id="@+id/portEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:hint="Número de puerto del servidor"
+        android:outlineAmbientShadowColor="#FFFFFF"
+        android:outlineSpotShadowColor="#FFFFFF"
+        android:shadowColor="#FFFFFF"
+        android:textColor="@color/white"
+        android:textColorHint="#8AFFFFFF"
+        android:textColorLink="#FFFFFF" />
+
+    <!-- Botón para conectar al servidor -->
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Conectar" />
+
+    <!-- Botón para limpiar los campos de texto -->
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:text="Limpiar" />
+
+</LinearLayout>

@@ -1,0 +1,3 @@
+es.ua.eps.chatapp.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

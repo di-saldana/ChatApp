@@ -1,0 +1,52 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <!-- RecyclerView para mostrar una lista de elementos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:scrollbars="vertical" />
+
+    <!-- LinearLayout para la entrada de texto y el botón de enviar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <!-- EditText para escribir un mensaje -->
+        <EditText
+            android:id="@+id/messageEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Escribe un mensaje"
+            android:inputType="textMultiLine"
+            android:shadowColor="@color/white"
+            android:textColor="@color/white"
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="#8AFFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textCursorDrawable="@null"
+            android:textIsSelectable="true"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!-- Botón para enviar el mensaje -->
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/send"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+</LinearLayout>
